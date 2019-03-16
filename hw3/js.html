@@ -1,0 +1,39 @@
+</html> 
+ <head>
+    Calculator
+</head>
+
+<body>
+    <h1>Calculator</h1>
+    <p>This is a paragraphff</p>
+    Num1:
+    <input id="num1" type="number" value="300"> Num2:
+    <input id="num2" type="number" value="50">
+    <br>
+    <button id="cal">Calculate</button>
+    <br> Result:
+    <input id="result" type="number">
+
+    <script>
+        // a = document.getElementById("num1").value
+        // b = document.getElementById("num2").value
+        // result = (+a) + (+b)
+
+        function calculate() {
+            a = +document.getElementById("num1").value
+            b = +document.getElementById("num2").value
+            result = (a) + (b)
+            document.getElementById("result").value = result
+        }
+
+        document.getElementById("cal").addEventListener('click', calculate)
+        document.getElementById("num1").addEventListener('keyup', calculate)
+        document.getElementById("num2").addEventListener('change', calculate)
+
+        // result = Math.pow(a, b)
+        // console.log('result:')
+        // console.log(result)
+    </script>
+
+</body>
+</html>
