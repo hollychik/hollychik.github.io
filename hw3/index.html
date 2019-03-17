@@ -1,7 +1,40 @@
 <html>
 
+<style>
+    body {
+        background-color: lightyellow;
+    }
+</style>
+
 <head>
-    Calculator
+    <h1 style="font-family:Georgia">How long does it take to cook a fresh chicken?🐔
+    </h1>
+
 </head>
+
+
+<body>
+
+    <p style="font-family:verdana">Mass of the chicken(g):</p>
+    <input id="num1" type="number" value="1600">
+    <br>
+    <button id="cal">Calculate</button>
+    <br>
+    <p style="font-family:verdana">Time needed (min):</p>
+    <input id="result" type="number">
+
+    <script>
+        function calculate() {
+            a = +document.getElementById("num1").value
+                // b = +document.getElementById("num2").value
+            result = 15 + ((a) / 500 * 25)
+            document.getElementById("result").value = result
+        }
+
+        document.getElementById("cal").addEventListener('click', calculate)
+            // document.getElementById("num1").addEventListener('keyup', calculate)
+            // document.getElementById("num2").addEventListener('change', calculate)
+    </script>
+</body>
 
 </html>
