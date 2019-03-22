@@ -4,43 +4,57 @@
     body {
         background-color: lightyellow;
     }
-    h1 {style="font-family:Georgia"
-    style="font-size:4vw"
+    
+    h1 {
+        font-family: Georgia;
+        font-size: 3vw;
+        text-align: center
     }
-    p{style="font-family:verdana" style="font-size:2vw"}
+    
+    p {
+        font-family: verdana;
+        font-size: 1.2vw
+    }
+    
+    .center {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 70%;
+    }
 </style>
 
 <head>
-    <h1 style="font-size:5vw" style="font-family:Georgia">How long does it take to cook a fresh chicken?🐔
+    <h1>How long does it take to cook a fresh chicken?🐔
     </h1>
-<img src="https://images.pexels.com/photos/265393/pexels-photo-265393.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Chicken" style="max-width:60%;height:auto;">
+    <img src="https://images.pexels.com/photos/265393/pexels-photo-265393.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Chicken" style="max-width:60%;height:auto" ; class=" center " ;>
 </head>
 
 
 <body>
-<p>Consuming raw chicken, which is often contaminated with Campylobacter bacteria and sometimes with Salmonella and Clostridium perfringens bacteria, can lead to foodborne illness, according to Centers for Disease Control and Prevention of the U.S. Department of Health and Human Services. </p>
-<p>Use the following calculator to find out how long you should cook your chicken. </p>
+    <p>Consuming raw chicken, which is often contaminated with Campylobacter bacteria and sometimes with Salmonella and Clostridium perfringens bacteria, can lead to foodborne illness, according to Centers for Disease Control and Prevention of the U.S. Department
+        of Health and Human Services. </p>
+    <p>Use the following calculator to find out how long you should cook your chicken. </p>
 
-    <p>Mass of the chicken(g):</p>
-    <input id="num1" type="number" value="2500">
+    <p><b>Mass of the chicken(g):</b></p>
+    <input id="num1 " type="number " value="2500 ">
     <br>
-    <button id="cal">Calculate</button>
+    <button id="cal ">Calculate</button>
     <br>
-    <p>Time needed (min):</p>
-    <input id="result" type="number">
+    <p><b>Time needed (min):</b></p>
+    <input id="result " type="number ">
 
     <script>
         function calculate() {
-            a = +document.getElementById("num1").value
+            a = +document.getElementById("num1 ").value
             result = 15 + ((a) / 500 * 25)
-            document.getElementById("result").value = result
+            document.getElementById("result ").value = result
         }
 
-        document.getElementById("cal").addEventListener('click', calculate)
-
+        document.getElementById("cal ").addEventListener('click', calculate)
     </script>
 
-    <h5 font-family: "Times New Roman", Times, serif;>Source: <a href="https://www.open.edu/openlearn/ocw/mod/oucontent/view.php?id=19185&section=3.1">The Open University</a>
+    <h4 style="font-family:Times New Roman;">Source: <a href="https://www.open.edu/openlearn/ocw/mod/oucontent/view.php?id=19185&section=3.1 ">The Open University</a>
 </body>
 
 </html>
