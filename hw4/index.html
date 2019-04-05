@@ -1,0 +1,202 @@
+<html>
+
+<head>
+    <title>Fixing Data Visualisation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0,maximum-scale=1.0">
+    <style>
+        responsive-block {
+            display: block;
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+        }
+        
+        ratio-1-to-1 responsive-block {
+            display: block;
+            position: relative;
+            padding-bottom: 100%;
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+        }
+        
+        ratio-4-to-3 responsive-block {
+            display: block;
+            position: relative;
+            padding-bottom: 75%;
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+        }
+        
+        responsive-block iframe,
+        responsive-block object,
+        responsive-block embed {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        body {
+            max-width: 360px;
+            margin-left: auto;
+            margin-right: auto;
+            color: #333;
+            font-family: Helvetica, Arial, sans-serif
+        }
+        
+        img {
+            max-width: 100%;
+        }
+        
+        p {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+        
+        figure {
+            width: 100%;
+            margin-left: 0;
+            margin-right: 0;
+        }
+        
+        figure figcaption {
+            display: block;
+            padding-left: 2rem;
+            padding-right: 2rem;
+            font-size: 0.85em;
+        }
+        
+        h2 {
+            border-bottom: 1px solid #ccc;
+            margin-top: 2em
+        }
+        
+        cover-image {
+            display: block;
+            position: relative;
+        }
+        
+        cover-image h1 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            color: #eee;
+            text-align: center;
+        }
+        
+        cover-image author-block {
+            position: absolute;
+            bottom: 1em;
+            left: 0;
+            right: 0;
+            color: black;
+            text-align: center;
+            padding: 10px;
+            opacity: 0.6;
+            background-color: white;
+        }
+        
+        code {
+            margin: 0;
+            max-width: 100%;
+            word-break: break-all;
+            font-family: monospace;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Fixing Data Visualisation</h2>
+
+    <p>In March, a visual data journalist at The Economist published <a href="https://medium.economist.com/mistakes-weve-drawn-a-few-8cdd8a42d368">an article</a> on Medium about their "errors in data visualisation."
+    </p>
+    <p>In the article, the journalist fixed a number of visualisations the new organisation has published over the years.</p>
+    <p>The only one she did not fix was <a href="https://www.economist.com/science-and-technology/2017/03/11/science-remains-male-dominated">a graph</a> which she described to be containing too much information.</p>
+
+    <h4>Here is the original graph:</h4>
+    <img src="images/20170311_STC128_0.JPG" alt="graph">
+    <a href="https://www.economist.com/sites/default/files/imagecache/1000-width/images/print-edition/20170311_STC128_0.png"><img style="width:500px; height:796.5px" title="graph" alt="graph"></a>
+
+    <h4>My thoughts:</h4>
+    <p>Instead of showing all the data in a static graph, it might be a good idea to present the data with interactive bar charts like the following:</p>
+    <p>A drop-down menu can also be created for readers to navigate graphs featuring data of different fields.</p>
+    <p>The following bar chart is created to show an esay but effective way to show the percentage of women inventores who filed patent applications from 2011 to 16.</p>
+
+    <script src="../Highcharts-7.0.3/code/highcharts.js"></script>
+    <script src="../Highcharts-7.0.3/code/modules/annotations.js"></script>
+    <script src="../Highcharts-7.0.3/code/modules/exporting.js"></script>
+    <script src="../Highcharts-7.0.3/code/modules/export-data.js"></script>
+
+    <div id="chart1" style="min-width: 310px; max-width: 800px; height: 400px; margin: 0 auto"></div>
+
+    <script type="text/javascript">
+        Highcharts.chart('chart1', {
+            chart: {
+                type: 'bar'
+            },
+            title: {
+                text: 'Percentage of women inventores who filed patent applications'
+            },
+            subtitle: {
+                text: 'Source: Sources: "Gender in the Global Research Landscape" by Elsevier; The Economist'
+            },
+            xAxis: {
+                categories: ['Japan', 'Chile', 'United Kingdom', 'United States', 'Mexico', 'Denmark', 'EU28', 'France', 'Canada', 'Australia', 'Brazil', 'Portugal'],
+                title: {
+                    text: null
+                }
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: 'Percentage',
+                    align: 'high'
+                },
+                labels: {
+                    overflow: 'justify'
+                }
+            },
+            tooltip: {
+                valueSuffix: '%'
+            },
+            plotOptions: {
+                bar: {
+                    dataLabels: {
+                        enabled: true
+                    }
+                }
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'top',
+                x: -40,
+                y: 80,
+                floating: true,
+                borderWidth: 1,
+                backgroundColor: ((Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'),
+                shadow: true
+            },
+            credits: {
+                enabled: false
+            },
+            series: [{
+                name: 'Women',
+                data: [0.08, 0.19, 0.12, 0.14, 0.18, 0.13, 0.12, 0.17, 0.13, 0.12, 0.19, 0.26]
+            }, {
+                name: 'Men',
+                data: [0.92, 0.81, 0.88, 0.86, 0.82, 0.87, 0.88, 0.83, 0.87, 0.88, 0.81, 0.74]
+            }]
+        });
+    </script>
+    <h5>The chart data can be downloaded <a href='http://infographics.economist.com/databank/Economist_women-research.csv'>here</a>.</h5>
+
+    <body>
+
+</html>
