@@ -23,10 +23,55 @@
 
 
 
-		<script type="text/javascript">
+<script type="text/javascript">
 
+$.getJSON('Highmaps-7.0.3/map.geojson', function (geojson) {
 $.getJSON('Highmaps-7.0.3/world-population.json', function (data) {
+   
+    var data = [
+    ['HK', 100],
+    ['KL', 200],
+    ['NT', 300]
+];
 
+    // Initiate the chart
+    Highcharts.mapChart('container', {
+        chart: {
+            map: geojson
+        },
+
+        title: {
+            text: 'GeoJSON in Highmaps'
+        },
+
+        mapNavigation: {
+            enabled: true,
+            buttonOptions: {
+                verticalAlign: 'bottom'
+            }
+        },
+
+        colorAxis: {
+            tickPixelInterval: 100
+        },
+
+        series: [{
+            data: data,
+            keys: ['name', 'value'],
+            joinBy: 'name',
+            name: 'Random data',
+            states: {
+                hover: {
+                    color: '#a4edba'
+                }
+            },
+            dataLabels: {
+                enabled: true,
+                format: '{point.properties.postal}'
+            }
+        }]
+    });
+});
     Highcharts.mapChart('container', {
         chart: {
             borderWidth: 1,
