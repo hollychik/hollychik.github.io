@@ -25,13 +25,28 @@
 
 <script type="text/javascript">
 
-$.getJSON('Highmaps-7.0.3/map.geojson', function (geojson) {
+$.getJSON('Highmaps-7.0.3/map.geojson', function (data) {
 $.getJSON('Highmaps-7.0.3/dc_land.lowres.geo.json', function (geojson) {
    
     var data = [
-    ['HK', 100],
-    ['KL', 200],
-    ['NT', 300]
+    ['Central & Western', 139534],
+    ['Wan Chai', 106009],
+    ['Eastern', 296373],
+    ['Southern', 143331],
+    ['Yau Tsim Mong', 183084],
+    ['Sham Shui Po', 205565],
+    ['Kowloon City', 217224],
+    ['Wong Tai Sin', 209277],
+    ['Kwun Tong', 315577],
+    ['Kwai Tsing', 259427],
+    ['Tsuen Wan', 168786],
+    ['Tuen Mun', 245334],
+    ['Yuen Long', 301676],
+    ['North', 150586],
+    ['Tai Po', 153824],
+    ['Sha Tin', 335202],
+    ['Sai Kung', 245332],
+    ['Islands', 79815]
 ];
 
     // Initiate the chart
@@ -57,9 +72,9 @@ $.getJSON('Highmaps-7.0.3/dc_land.lowres.geo.json', function (geojson) {
 
         series: [{
             data: data,
-            keys: ['name', 'value'],
-            joinBy: 'name',
-            name: 'Random data',
+            keys: ['DC_ENG', 'value'],
+            joinBy: 'DC_ENG',
+            name: 'Working Population',
             states: {
                 hover: {
                     color: '#a4edba'
